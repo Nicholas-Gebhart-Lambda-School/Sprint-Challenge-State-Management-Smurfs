@@ -5,7 +5,9 @@ import {
   FETCH_FAILURE,
   POST_PENDING,
   POST_SUCCESS,
-  POST_FAILURE
+  POST_FAILURE,
+  PUT_SUCCESS,
+  PUT_FAILURE
 } from './action.types';
 
 // FETCH
@@ -35,5 +37,16 @@ export const postSmurf = smurf => dispatch => {
     })
     .catch(err => {
       dispatch({ type: POST_FAILURE, payload: err.response });
+    });
+};
+
+export const putSmurf = (id, smurf) => dispatch => {
+  axios
+    .put(`http://localhost:3333/smurfs/${id}`, smurf)
+    .then(res => {
+      dispatch({ type: PUT_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: PUT_FAILURE, payload: err.response });
     });
 };

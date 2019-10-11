@@ -4,6 +4,8 @@ export {
   FETCH_FAILURE,
   POST_PENDING,
   POST_SUCCESS,
-  POST_FAILURE
+  POST_FAILURE,
+  PUT_SUCCESS,
+  PUT_FAILURE
 } from './action.types';
-export { fetchSmurf, postSmurf } from './action.creators';
+export { fetchSmurf, postSmurf, putSmurf } from './action.creators';

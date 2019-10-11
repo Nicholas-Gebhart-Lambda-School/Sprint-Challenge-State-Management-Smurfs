@@ -7,3 +7,11 @@ export const FETCH_FAILURE = 'FETCH_FAILURE';
 export const POST_PENDING = 'POST_PENDING';
 export const POST_SUCCESS = 'POST_SUCCESS';
 export const POST_FAILURE = 'POST_FAILURE';
+
+// PUT
+export const PUT_SUCCESS = 'PUT_SUCCESS';
+export const PUT_FAILURE = 'PUT_FAILURE';
+
+// DELETE
+export const DELETE_SUCCESS = 'DELETE_SUCCESS';
+export const DELETE_FAILURE = 'DELETE_FAILURE';

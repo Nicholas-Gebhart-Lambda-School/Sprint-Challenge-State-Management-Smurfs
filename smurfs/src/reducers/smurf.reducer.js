@@ -4,17 +4,16 @@ import {
   FETCH_FAILURE,
   POST_PENDING,
   POST_SUCCESS,
-  POST_FAILURE
+  POST_FAILURE,
+  PUT_SUCCESS,
+  PUT_FAILURE
 } from '../actions/action.types';
 
 const initialState = {
   fetching: false,
   fetched: false,
   smurfs: [],
-  error: '',
-  post_pending: false,
-  post_success: false,
-  post_error: ''
+  error: ''
 };
 
 export default (state = initialState, action) => {
@@ -44,23 +43,28 @@ export default (state = initialState, action) => {
     // POST
     case POST_PENDING:
       return {
-        ...state,
-        post_pending: true,
-        post_error: ''
+        ...state
       };
     case POST_SUCCESS:
       return {
         ...state,
-        post_pending: false,
-        post_success: true,
-        smurfs: [...state.smurfs, action.payload]
+        smurfs: action.payload
       };
     case POST_FAILURE:
       return {
         ...state,
-        post_pending: false,
-        post_success: false,
-        post_error: action.payload
+        error: action.payload
+      };
+    // PUT
+    case PUT_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload
+      };
+    case PUT_FAILURE:
+      return {
+        ...state,
+        error: action.payload
       };
 
     default:
