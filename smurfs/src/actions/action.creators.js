@@ -7,7 +7,9 @@ import {
   POST_SUCCESS,
   POST_FAILURE,
   PUT_SUCCESS,
-  PUT_FAILURE
+  PUT_FAILURE,
+  DELETE_SUCCESS,
+  DELETE_FAILURE
 } from './action.types';
 
 // FETCH
@@ -48,5 +50,17 @@ export const putSmurf = (id, smurf) => dispatch => {
     })
     .catch(err => {
       dispatch({ type: PUT_FAILURE, payload: err.response });
+    });
+};
+
+export const deleteSmurf = id => dispatch => {
+  axios
+    .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(res => {
+      console.log(res.data);
+      dispatch({ type: DELETE_SUCCESS, payload: id });
+    })
+    .catch(err => {
+      dispatch({ type: DELETE_FAILURE, payload: err.response });
     });
 };

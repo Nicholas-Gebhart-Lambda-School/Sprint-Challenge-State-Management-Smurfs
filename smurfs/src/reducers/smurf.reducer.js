@@ -6,7 +6,9 @@ import {
   POST_SUCCESS,
   POST_FAILURE,
   PUT_SUCCESS,
-  PUT_FAILURE
+  PUT_FAILURE,
+  DELETE_SUCCESS,
+  DELETE_FAILURE
 } from '../actions/action.types';
 
 const initialState = {
@@ -62,6 +64,17 @@ export default (state = initialState, action) => {
         smurfs: action.payload
       };
     case PUT_FAILURE:
+      return {
+        ...state,
+        error: action.payload
+      };
+    // DELETE
+    case DELETE_SUCCESS:
+      return {
+        ...state,
+        smurfs: [...state.smurfs]
+      };
+    case DELETE_FAILURE:
       return {
         ...state,
         error: action.payload
