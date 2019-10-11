@@ -28,12 +28,15 @@ export default connect(
           setForm(formState);
         }}
       >
-        <input
-          type="number"
-          name="id"
-          value={form.id}
-          onChange={handleChange}
-        />
+        <label htmlFor="id">
+          Smurf ID
+          <input
+            type="number"
+            name="id"
+            value={form.id}
+            onChange={handleChange}
+          />
+        </label>
 
         <button type="submit">Yeet Smurf</button>
       </form>

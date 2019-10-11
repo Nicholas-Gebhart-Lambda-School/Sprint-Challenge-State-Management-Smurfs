@@ -33,30 +33,42 @@ export default connect(
           setForm(formState);
         }}
       >
-        <input
-          type="number"
-          name="id"
-          value={form.id}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-        />
-        <input
-          type="number"
-          name="age"
-          value={form.age}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="height"
-          value={form.height}
-          onChange={handleChange}
-        />
+        <label htmlFor="id">
+          ID:
+          <input
+            type="number"
+            name="id"
+            value={form.id}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="name">
+          Name:
+          <input
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="age">
+          Age:{' '}
+          <input
+            type="number"
+            name="age"
+            value={form.age}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="height">
+          Height:{' '}
+          <input
+            type="text"
+            name="height"
+            value={form.height}
+            onChange={handleChange}
+          />
+        </label>
         <button type="submit">Update Smurf</button>
       </form>
     </div>

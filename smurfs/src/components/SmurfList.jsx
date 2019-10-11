@@ -5,6 +5,7 @@ import { fetchSmurf, postSmurf } from '../actions';
 import AddSmurf from './AddSmurf';
 import EditSmurf from './EditSmurf';
 import DeleteSmurf from './DeleteSmurf';
+import SmurfCard from './SmurfCard';
 
 const mapStateToProps = state => {
   return {
@@ -22,14 +23,16 @@ export default connect(
 
   return (
     <div>
-      <h1>Smurf List</h1>
-      <pre>{JSON.stringify(state.smurfs, null, 2)}</pre>
       <h4>Add a Smurf</h4>
       <AddSmurf />
       <h4>Edit a Smurf</h4>
       <EditSmurf />
       <h4>Delete smurf by ID</h4>
       <DeleteSmurf />
+      <h1>Smurf List</h1>
+      {state.smurfs.map(smurf => {
+        return <SmurfCard key={smurf.id} smurf={smurf} />;
+      })}
     </div>
   );
 });
