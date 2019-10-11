@@ -23,6 +23,13 @@ export default connect(
   return (
     <div>
       <form
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          textAlign: 'center',
+          width: '500px',
+          margin: '0 auto'
+        }}
         onSubmit={e => {
           deleteSmurf(form.id);
           setForm(formState);
@@ -38,7 +45,9 @@ export default connect(
           />
         </label>
 
-        <button type="submit">Yeet Smurf</button>
+        <button style={{ width: '100px', margin: '0 auto' }} type="submit">
+          Yeet Smurf
+        </button>
       </form>
     </div>
   );

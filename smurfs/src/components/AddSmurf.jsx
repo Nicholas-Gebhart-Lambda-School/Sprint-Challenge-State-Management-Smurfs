@@ -23,6 +23,14 @@ export default connect(
   return (
     <div>
       <form
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          textAlign: 'center',
+          width: '500px',
+          margin: '0 auto',
+          justifyContent: 'space-between'
+        }}
         onSubmit={e => {
           e.preventDefault();
           postSmurf({
@@ -60,7 +68,9 @@ export default connect(
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Add Smurf</button>
+        <button style={{ width: '100px', margin: '0 auto' }} type="submit">
+          Add Smurf
+        </button>
       </form>
     </div>
   );

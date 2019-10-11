@@ -23,6 +23,13 @@ export default connect(
   return (
     <div>
       <form
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          textAlign: 'center',
+          width: '500px',
+          margin: '0 auto'
+        }}
         onSubmit={e => {
           e.preventDefault();
           putSmurf(form.id, {
@@ -69,7 +76,9 @@ export default connect(
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Update Smurf</button>
+        <button style={{ width: '100px', margin: '0 auto' }} type="submit">
+          Update Smurf
+        </button>
       </form>
     </div>
   );
