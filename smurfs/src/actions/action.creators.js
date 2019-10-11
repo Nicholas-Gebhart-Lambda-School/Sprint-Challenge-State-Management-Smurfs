@@ -1,6 +1,14 @@
 import axios from 'axios';
-import { FETCH_PENDING, FETCH_SUCCESS, FETCH_FAILURE } from './action.types';
+import {
+  FETCH_PENDING,
+  FETCH_SUCCESS,
+  FETCH_FAILURE,
+  POST_PENDING,
+  POST_SUCCESS,
+  POST_FAILURE
+} from './action.types';
 
+// FETCH
 export const fetchSmurf = () => dispatch => {
   dispatch({ type: FETCH_PENDING });
 
@@ -13,5 +21,19 @@ export const fetchSmurf = () => dispatch => {
     .catch(err => {
       console.log('error in fetch', err);
       dispatch({ type: FETCH_FAILURE, payload: err.response });
+    });
+};
+
+// POST
+export const postSmurf = smurf => dispatch => {
+  dispatch({ type: POST_PENDING });
+
+  axios
+    .post('http://localhost:3333/smurfs', smurf)
+    .then(res => {
+      dispatch({ type: POST_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: POST_FAILURE, payload: err.response });
     });
 };

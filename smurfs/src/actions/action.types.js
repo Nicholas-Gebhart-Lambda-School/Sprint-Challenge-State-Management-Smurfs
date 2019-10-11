@@ -1,3 +1,9 @@
+// FETCH
 export const FETCH_PENDING = 'FETCH_PENDING';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
+
+// POST
+export const POST_PENDING = 'POST_PENDING';
+export const POST_SUCCESS = 'POST_SUCCESS';
+export const POST_FAILURE = 'POST_FAILURE';
