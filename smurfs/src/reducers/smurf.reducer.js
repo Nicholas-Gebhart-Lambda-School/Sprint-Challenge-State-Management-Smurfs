@@ -33,7 +33,8 @@ export default (state = initialState, action) => {
         fetching: false,
         fetched: true,
         smurfs: action.payload,
-        error: ''
+        error: '',
+        delete: true
       };
     case FETCH_FAILURE:
       return {
@@ -72,7 +73,8 @@ export default (state = initialState, action) => {
     case DELETE_SUCCESS:
       return {
         ...state,
-        smurfs: [...state.smurfs]
+        smurfs: [...state.smurfs.filter(smurf => smurf.id !== action.payload)],
+        delete: !state.delete
       };
     case DELETE_FAILURE:
       return {

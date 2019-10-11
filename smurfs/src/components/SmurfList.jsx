@@ -59,9 +59,10 @@ export default connect(
       <h4>Delete smurf by ID</h4>
       <DeleteSmurf />
       <h1>Smurf List</h1>
-      {state.smurfs.map(smurf => {
-        return <SmurfCard key={smurf.id} smurf={smurf} />;
-      })}
+      {state.smurfs &&
+        state.smurfs.map(smurf => {
+          return <SmurfCard key={smurf.id} smurf={smurf} />;
+        })}
     </div>
   );
 });
